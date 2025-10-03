@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 255 255 255;
+  --fg: 24 24 27;
+}
+
+html, body, :root { height: 100%; }
+
+body {
+  color: rgb(var(--fg));
+  background: radial-gradient(1200px 800px at 10% -10%, rgba(14,165,233,.25), transparent 40%),
+              radial-gradient(1200px 800px at 110% 10%, rgba(8,145,178,.25), transparent 40%),
+              #fff;
+}
+
+.container-prose h1 { @apply text-3xl font-bold tracking-tight; }
+.container-prose h2 { @apply text-2xl font-semibold mt-6; }
+.container-prose p  { @apply text-base text-zinc-700; }
+input, button, textarea, select { @apply outline-none; }
