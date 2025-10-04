@@ -1,6 +1,11 @@
 import { NextResponse } from 'next/server'
 import { stripe } from '@/lib/stripe'
 import { prisma } from '@/lib/db'
+import { headers } from 'next/headers';
+
+export const runtime = 'nodejs';       // Stripe SDK nécessite Node (pas Edge)
+export const dynamic = 'force-dynamic'; // Un webhook est toujours dynamique
+
 
 export async function POST(req: Request) {
   const sig = req.headers.get('stripe-signature')
@@ -31,6 +36,4 @@ export async function POST(req: Request) {
   return NextResponse.json({ received: true })
 }
 
-export const config = {
-  api: { bodyParser: false }
-}
+
